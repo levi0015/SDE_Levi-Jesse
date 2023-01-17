@@ -187,6 +187,7 @@ public class BlueprintState implements CarState {
             } else if (hp < 200){
                 this.writer.write("Okay fine, if you'd really like " + hp + " hp, we will make you that engine.");
                 this.blueprint.add(String.valueOf(hp));
+                break;
             } else {
                 this.writer.write("Is this even a number?");
                 this.writer.write("Again, just type in a number between 150 and 400");
