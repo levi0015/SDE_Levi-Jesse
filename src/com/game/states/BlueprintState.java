@@ -195,7 +195,7 @@ public class BlueprintState implements CarState {
             } else if (hp > 200 && hp < 2147483647 /** Largest int value*/) {
                 this.writer.write("That is not possible, the engines only have 100 or 200 hp");
             } else if (hp < 200){
-                this.writer.write("Okay fine, if you'd really like " + hp + " hp, we will make you that engine.");
+                this.writer.write("Okay fine, if you'd really like " + hp + " hp, we will make you that engine (this will cost you tho).");
                 this.blueprint.add(String.valueOf(hp));
                 break;
             } else {
@@ -229,6 +229,27 @@ public class BlueprintState implements CarState {
     }
 
     private void blueprintDone() {
-        this.carFacade.designState(this.blueprint);
+        /**
+         * prototype drawing
+         */
+        this.writer.write("Do you like your car till now?");
+        label:
+        while (true) {
+            String acceptation = this.reader.readLine().toLowerCase().replaceAll("\\s","");
+            switch (acceptation) {
+                case "yes":
+                    this.writer.write("Great, now we can go on with the design of the car.");
+                    this.carFacade.designState(this.blueprint);
+                    break label;
+                case "no":
+                    this.writer.write("ooh no, now lets restart our procedure.");
+                    this.blueprint.clear();
+                    this.makeChoice();
+                    break label;
+                default:
+                    this.writer.write("That is not specifically what I asked, only yes or no answers will do.");
+                    break;
+            }
+        }
     }
 }
