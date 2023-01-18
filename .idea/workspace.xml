@@ -6,9 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="d684146d-5a7c-49e8-842f-57856f944629" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SDE_Levi-Jesse/com/game/CarFacade.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SDE_Levi-Jesse/com/game/CarFacade.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SDE_Levi-Jesse/com/game/states/BlueprintState.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SDE_Levi-Jesse/com/game/states/BlueprintState.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SDE_Levi-Jesse/com/game/states/DesignState.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SDE_Levi-Jesse/com/game/states/DesignState.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/game/states/BlueprintState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/game/states/BlueprintState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/game/states/DesignState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/game/states/DesignState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/game/states/ShowcaseState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/game/states/ShowcaseState.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

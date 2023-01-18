@@ -26,20 +26,24 @@ public class BlueprintState implements CarState {
             this.writer.write("A sports car, a SUV or a Limousine?");
             String car = this.reader.readLine().toLowerCase().replaceAll("\\s","");
 
-            if (car.equals("sportscar")) {
-                this.writer.write("Great, a nice sports car.");
-                this.blueprint.add("sportscar");
-                this.bpSportsCar();
-            } else if (car.equals("suv")) {
-                this.writer.write("Great choice, a big family car.");
-                this.blueprint.add("suv");
-                this.bpSUV();
-            } else if (car.equals("limousine")) {
-                this.writer.write("Oehhhh, this one has a looooooottt of space... if you'd like it big!");
-                this.blueprint.add("limousine");
-                this.bpLimousine();
-            } else {
-                this.writer.write("Euhm... That type of car isn't available at the moment, try one which is!");
+            switch (car) {
+                case "sportscar" -> {
+                    this.writer.write("Great, a nice sports car.");
+                    this.blueprint.add("sportscar");
+                    this.bpSportsCar();
+                }
+                case "suv" -> {
+                    this.writer.write("Great choice, a big family car.");
+                    this.blueprint.add("suv");
+                    this.bpSUV();
+                }
+                case "limousine" -> {
+                    this.writer.write("Oehhhh, this one has a looooooottt of space... if you'd like it big!");
+                    this.blueprint.add("limousine");
+                    this.bpLimousine();
+                }
+                default ->
+                        this.writer.write("Euhm... That type of car isn't available at the moment, try one which is!");
             }
         }
     }
@@ -82,18 +86,21 @@ public class BlueprintState implements CarState {
         this.writer.write("Next up, last question, do you want doorhandles, or do you want automatically opening doors");
         this.writer.write("These doors will open when you walk up to them, it scans you key when in range");
         this.writer.write("If you'd like this, please say Yes, if not, say No");
+        label:
         while (true) {
             String doorHandles = this.reader.readLine().toLowerCase().replaceAll("\\s","");
-            if (doorHandles.equals("yes")) {
-                this.writer.write("Good choice, the automatic doors. We will add it to the car.");
-                this.blueprint.add("true");
-                break;
-            } else if (doorHandles.equals("no")) {
-                this.writer.write("Ah yes, just the old-school doorhandles. I like that too, no worries.");
-                this.blueprint.add("false");
-                break;
-            } else {
-                this.writer.write("That is not specifically what I asked, only yes or no answers will do.");
+            switch (doorHandles) {
+                case "yes":
+                    this.writer.write("Good choice, the automatic doors. We will add it to the car.");
+                    this.blueprint.add("true");
+                    break label;
+                case "no":
+                    this.writer.write("Ah yes, just the old-school doorhandles. I like that too, no worries.");
+                    this.blueprint.add("false");
+                    break label;
+                default:
+                    this.writer.write("That is not specifically what I asked, only yes or no answers will do.");
+                    break;
             }
         }
 
@@ -137,18 +144,21 @@ public class BlueprintState implements CarState {
         this.writer.write("Next up, last question, do you want doorhandles, or do you want automatically opening doors");
         this.writer.write("These doors will open when you walk up to them, it scans you key when in range");
         this.writer.write("If you'd like this, please say Yes, if not, say No");
+        label:
         while (true) {
             String doorHandles = this.reader.readLine().toLowerCase().replaceAll("\\s","");
-            if (doorHandles.equals("yes")) {
-                this.writer.write("Good choice, the automatic doors. We will add it to the car.");
-                this.blueprint.add("true");
-                break;
-            } else if (doorHandles.equals("no")) {
-                this.writer.write("Ah yes, just the old-school doorhandles. I like that too, no worries.");
-                this.blueprint.add("false");
-                break;
-            } else {
-                this.writer.write("That is not specifically what I asked, only yes or no answers will do.");
+            switch (doorHandles) {
+                case "yes":
+                    this.writer.write("Good choice, the automatic doors. We will add it to the car.");
+                    this.blueprint.add("true");
+                    break label;
+                case "no":
+                    this.writer.write("Ah yes, just the old-school doorhandles. I like that too, no worries.");
+                    this.blueprint.add("false");
+                    break label;
+                default:
+                    this.writer.write("That is not specifically what I asked, only yes or no answers will do.");
+                    break;
             }
         }
 
@@ -197,26 +207,28 @@ public class BlueprintState implements CarState {
         this.writer.write("Next up, last question, do you want doorhandles, or do you want automatically opening doors");
         this.writer.write("These doors will open when your chauffeur sees you coming. It will open the doors for all your passengers");
         this.writer.write("If you'd like this, please say Yes, if not, say No");
+        label:
         while (true) {
             String doorHandles = this.reader.readLine().toLowerCase().replaceAll("\\s","");
-            if (doorHandles.equals("yes")) {
-                this.writer.write("Good choice, the automatic doors. We will add it to the car.");
-                this.blueprint.add("true");
-                break;
-            } else if (doorHandles.equals("no")) {
-                this.writer.write("Ah yes, just the old-school doorhandles. I like that too, no worries.");
-                this.blueprint.add("false");
-                break;
-            } else {
-                this.writer.write("That is not specifically what I asked, only yes or no answers will do.");
+            switch (doorHandles) {
+                case "yes":
+                    this.writer.write("Good choice, the automatic doors. We will add it to the car.");
+                    this.blueprint.add("true");
+                    break label;
+                case "no":
+                    this.writer.write("Ah yes, just the old-school doorhandles. I like that too, no worries.");
+                    this.blueprint.add("false");
+                    break label;
+                default:
+                    this.writer.write("That is not specifically what I asked, only yes or no answers will do.");
+                    break;
             }
         }
 
         this.blueprintDone();
     }
 
-    public void blueprintDone()
-    {
+    private void blueprintDone() {
         this.carFacade.designState(this.blueprint);
     }
 }

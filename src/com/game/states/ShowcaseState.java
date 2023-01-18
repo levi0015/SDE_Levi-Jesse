@@ -4,7 +4,6 @@ import com.game.CarState;
 import com.game.CarFacade;
 import com.game.console.ConsoleReader;
 import com.game.console.ConsoleWriter;
-
 import java.util.ArrayList;
 
 public class ShowcaseState implements CarState {
