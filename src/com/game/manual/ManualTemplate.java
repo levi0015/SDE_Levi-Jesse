@@ -12,7 +12,8 @@ abstract public class ManualTemplate {
     }
 
     public String intro() {
-        return "Thank you for choosing one of our " + this.blueprint.get(0) + "'s. We are happy to have you be a customer of our services.\n" +
+        return "Manual:\n" +
+                "Thank you for choosing one of our " + this.blueprint.get(0) + "'s. We are happy to have you be a customer of our services.\n" +
                 "We would like you to know that our " + this.blueprint.get(0) + " collection is spreading globally and we are expending our services across the world.\n" +
                 "Now let's give a bit of information about your " + this.blueprint.get(0) + ":\n";
     };
