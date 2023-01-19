@@ -1,5 +1,6 @@
 package com.game;
 
+import com.game.console.ASCIIArtGenerator;
 import com.game.console.ConsoleReader;
 import com.game.console.ConsoleWriter;
 import com.game.states.BlueprintState;
@@ -19,6 +20,8 @@ public class CarFacade {
     ArrayList<String> design;
 
     public void blueprintState() {
+        ASCIIArtGenerator creator = new ASCIIArtGenerator();
+        creator.printTextArt("W E L C O M E", ASCIIArtGenerator.ART_SIZE_MEDIUM);
         this.state = new BlueprintState(this, this.reader, this.writer);
         this.state.makeChoice();
     }
