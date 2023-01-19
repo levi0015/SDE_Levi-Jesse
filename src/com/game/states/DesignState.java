@@ -33,6 +33,7 @@ public class DesignState implements CarState {
                     break label;
                 case "rainbow":
                     this.writer.write("Great, you have unlocked our easter-egg coloured car.");
+                    this.design.add(colour);
                     break label;
                 default:
                     this.writer.write("That is not specifically what I asked, only yes or no answers will do.");
@@ -54,7 +55,7 @@ public class DesignState implements CarState {
                     this.design.add("spoiler");
                     break label;
                 case "no":
-                    this.writer.write("Alright we won't add those.");
+                    this.writer.write("Alright we won't add that.");
                     break label;
                 default:
                     this.writer.write("That is not specifically what I asked, only yes or no answers will do.");
@@ -71,14 +72,14 @@ public class DesignState implements CarState {
                     this.design.add("tinted windows");
                     break label;
                 case "no":
-                    this.writer.write("Alright we won't add those.");
+                    this.writer.write("Alright we will leave it normal.");
                     break label;
                 default:
                     this.writer.write("That is not specifically what I asked, only yes or no answers will do.");
                     break;
             }
         }
-        this.writer.write("Do you like roof box?");
+        this.writer.write("Do you like a roof box?");
         label:
         while (true) {
             String roof = this.reader.readLine().toLowerCase().replaceAll("\\s","");
@@ -88,7 +89,7 @@ public class DesignState implements CarState {
                     this.design.add("roof box");
                     break label;
                 case "no":
-                    this.writer.write("Alright we won't add those.");
+                    this.writer.write("Alright we won't add that.");
                     break label;
                 default:
                     this.writer.write("That is not specifically what I asked, only yes or no answers will do.");

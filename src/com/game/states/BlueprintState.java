@@ -37,7 +37,7 @@ public class BlueprintState implements CarState {
                     this.blueprint.add("suv");
                     this.bpSUV();
                 }
-                case "limousine" -> {
+                case "limousine", "limo" -> {
                     this.writer.write("Oehhhh, this one has a looooooottt of space... if you'd like it big!");
                     this.blueprint.add("limousine");
                     this.bpLimousine();
@@ -238,7 +238,7 @@ public class BlueprintState implements CarState {
             String acceptation = this.reader.readLine().toLowerCase().replaceAll("\\s","");
             switch (acceptation) {
                 case "yes":
-                    this.writer.write("Great, now we can go on with the design of the car.");
+                    this.writer.write("Great, then we can go on with the design of the car.");
                     this.carFacade.designState(this.blueprint);
                     break label;
                 case "no":

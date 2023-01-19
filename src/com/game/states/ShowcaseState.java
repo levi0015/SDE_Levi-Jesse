@@ -32,8 +32,9 @@ public class ShowcaseState implements CarState {
     @Override
     public void makeChoice() {
 //        this.writer.write("Start showcase.");
-        this.writer.write(this.manual.introduction());
-        this.writer.write(this.manual.carSpecifications());
+        this.writer.write(this.manual.intro());
+        this.writer.write(this.manual.carSpecs());
+        this.writer.write(this.manual.carDesignSpecs());
 
         System.exit(1);
     }
