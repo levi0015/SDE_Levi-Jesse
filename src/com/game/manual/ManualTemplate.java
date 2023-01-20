@@ -6,7 +6,7 @@ abstract public class ManualTemplate {
     ArrayList<String> blueprint;
     ArrayList<String> design;
 
-    public ManualTemplate(ArrayList<String> blueprint, ArrayList<String> design){
+    public ManualTemplate(ArrayList<String> blueprint, ArrayList<String> design) {
         this.blueprint = blueprint;
         this.design = design;
     }

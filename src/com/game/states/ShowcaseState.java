@@ -12,21 +12,22 @@ import com.game.manual.SportscarManual;
 import java.util.ArrayList;
 
 public class ShowcaseState implements CarState {
-    ArrayList<String> blueprint;
-    ArrayList<String> design;
+    private ArrayList<String> blueprint;
+    private ArrayList<String> design;
 
-    CarFacade carFacade;
-    ConsoleWriter writer;
-    ConsoleReader reader;
-    ManualTemplate manual;
+    private final ConsoleReader reader;
+    private final ConsoleWriter writer;
 
-    public ShowcaseState (CarFacade carFacade, ConsoleReader reader, ConsoleWriter writer, ArrayList<String> blueprint, ArrayList<String> design) {
-        this.carFacade = carFacade;
-        this.reader = reader;
-        this.writer = writer;
+    private final CarFacade carFacade;
+    private final ManualTemplate manual;
+
+    public ShowcaseState (ArrayList<String> blueprint, ArrayList<String> design, ConsoleReader reader, ConsoleWriter writer, CarFacade carFacade) {
         this.blueprint = blueprint;
         this.design = design;
-        this.manual = createManual(this.blueprint.get(0));
+        this.reader = reader;
+        this.writer = writer;
+        this.carFacade = carFacade;
+        this.manual = this.createManual(this.blueprint.get(0));
     }
 
     @Override

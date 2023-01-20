@@ -2,7 +2,8 @@ package com.game.manual;
 
 import java.util.ArrayList;
 
-public class LimousineManual extends ManualTemplate{
+public class LimousineManual extends ManualTemplate {
+
     public LimousineManual(ArrayList<String> blueprint, ArrayList<String> design) {
         super(blueprint, design);
     }
@@ -24,8 +25,9 @@ public class LimousineManual extends ManualTemplate{
                 .append("The color of your limousine will be ").append(this.design.get(0))
                 .append(" and this will have be a metallic color. This will look pretty and it will sure get the attention of everyone.\n")
                 .append("As for the extra's, you need the following information:\n");
+
         boolean hasAccessories = false;
-        Integer countAccessories = 1;
+        int countAccessories = 1;
         for (String d : this.design) {
             switch (d) {
                 case "spoiler" -> {
@@ -50,9 +52,11 @@ public class LimousineManual extends ManualTemplate{
                 }
             }
         }
+
         if (!hasAccessories) {
             designSpecs.append("Oh... I see you didn't choose any extra's. No worries, your limousine will still be nice.\n");
         }
+
         return designSpecs.toString();
     }
 }

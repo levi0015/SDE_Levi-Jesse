@@ -8,9 +8,10 @@ import java.util.ArrayList;
 
 public class DesignState implements CarState {
     private ArrayList<String> design = new ArrayList<>();
-    CarFacade carFacade;
-    ConsoleWriter writer;
-    ConsoleReader reader;
+    private final CarFacade carFacade;
+
+    private final ConsoleReader reader;
+    private final ConsoleWriter writer;
 
     public DesignState (CarFacade carFacade, ConsoleReader reader, ConsoleWriter writer) {
         this.carFacade = carFacade;
@@ -40,7 +41,6 @@ public class DesignState implements CarState {
                     break;
             }
         }
-
         this.chooseAccessories();
     }
 
@@ -62,6 +62,7 @@ public class DesignState implements CarState {
                     break;
             }
         }
+
         this.writer.write("Do you want tinted windows?");
         label:
         while (true) {
@@ -79,6 +80,7 @@ public class DesignState implements CarState {
                     break;
             }
         }
+
         this.writer.write("Do you like a roof box?");
         label:
         while (true) {
@@ -96,7 +98,6 @@ public class DesignState implements CarState {
                     break;
             }
         }
-
         this.designDone();
     }
 
@@ -106,6 +107,7 @@ public class DesignState implements CarState {
             this.writer.write(s);
         }
         this.writer.write("Are you happy with this/these option(s)?");
+
         label:
         while (true) {
             String acceptation = this.reader.readLine().toLowerCase().replaceAll("\\s","");

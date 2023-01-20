@@ -15,7 +15,6 @@ import java.awt.image.BufferedImage;
  *
  */
 public class ASCIIArtGenerator {
-
     public static final int ART_SIZE_SMALL = 12;
     public static final int ART_SIZE_MEDIUM = 18;
     public static final int ART_SIZE_LARGE = 24;
@@ -33,22 +32,9 @@ public class ASCIIArtGenerator {
             return value;
         }
 
-        private ASCIIArtFont(String value) {
+        ASCIIArtFont(String value) {
             this.value = value;
         }
-    }
-
-    public static void main() throws Exception {
-        ASCIIArtGenerator artGen = new ASCIIArtGenerator();
-
-        System.out.println();
-        artGen.printTextArt("Hello", ASCIIArtGenerator.ART_SIZE_MEDIUM);
-        System.out.println();
-
-        System.out.println();
-        artGen.printTextArt("Love is life!", ASCIIArtGenerator.ART_SIZE_SMALL, ASCIIArtFont.ART_FONT_MONO,"@");
-        System.out.println();
-
     }
 
     /**

@@ -8,9 +8,10 @@ import java.util.ArrayList;
 
 public class BlueprintState implements CarState {
     private ArrayList<String> blueprint = new ArrayList<>();
-    CarFacade carFacade;
-    ConsoleWriter writer;
-    ConsoleReader reader;
+    private final CarFacade carFacade;
+
+    private final ConsoleReader reader;
+    private final ConsoleWriter writer;
 
     public BlueprintState (CarFacade carFacade, ConsoleReader reader, ConsoleWriter writer) {
         this.carFacade = carFacade;
@@ -25,7 +26,6 @@ public class BlueprintState implements CarState {
         while (true) {
             this.writer.write("A sports car, a SUV or a Limousine?");
             String car = this.reader.readLine().toLowerCase().replaceAll("\\s","");
-
             switch (car) {
                 case "sportscar" -> {
                     this.writer.write("Great, a nice sports car.");
@@ -103,7 +103,6 @@ public class BlueprintState implements CarState {
                     break;
             }
         }
-
         this.blueprintDone();
     }
 
@@ -161,7 +160,6 @@ public class BlueprintState implements CarState {
                     break;
             }
         }
-
         this.blueprintDone();
     }
 
@@ -224,7 +222,6 @@ public class BlueprintState implements CarState {
                     break;
             }
         }
-
         this.blueprintDone();
     }
 

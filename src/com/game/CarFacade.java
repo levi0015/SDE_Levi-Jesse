@@ -6,22 +6,20 @@ import com.game.console.ConsoleWriter;
 import com.game.states.BlueprintState;
 import com.game.states.DesignState;
 import com.game.states.ShowcaseState;
-
 import java.util.ArrayList;
 
 public class CarFacade {
+    private ASCIIArtGenerator creator = new ASCIIArtGenerator();
+    private CarState state;
 
-    CarState state;
+    private ConsoleWriter writer = new ConsoleWriter();
+    private ConsoleReader reader = new ConsoleReader();
 
-    ConsoleWriter writer = new ConsoleWriter();
-    ConsoleReader reader = new ConsoleReader();
+    private ArrayList<String> blueprint;
+    private ArrayList<String> design;
 
-    ArrayList<String> blueprint;
-    ArrayList<String> design;
-
-    public void blueprintState() {
-        ASCIIArtGenerator creator = new ASCIIArtGenerator();
-        creator.printTextArt("W E L C O M E", ASCIIArtGenerator.ART_SIZE_MEDIUM);
+    protected void blueprintState() {
+        this.creator.printTextArt("W E L C O M E", ASCIIArtGenerator.ART_SIZE_MEDIUM);
         this.state = new BlueprintState(this, this.reader, this.writer);
         this.state.makeChoice();
     }
@@ -34,7 +32,7 @@ public class CarFacade {
 
     public void showcaseState(ArrayList<String> design) {
         this.design = design;
-        this.state = new ShowcaseState(this, this.reader, this.writer, this.blueprint, this.design);
+        this.state = new ShowcaseState(this.blueprint, this.design, this.reader, this.writer, this);
         this.state.makeChoice();
     }
 }

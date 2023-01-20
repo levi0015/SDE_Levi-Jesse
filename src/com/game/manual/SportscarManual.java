@@ -25,8 +25,9 @@ public class SportscarManual extends ManualTemplate {
                 .append("The color of your car will be ").append(this.design.get(0))
                 .append(" and this will have a thin safety coat on top, so little scratches won't take of the paint.\n")
                 .append("As for the extra's, you need the following information:\n");
+
         boolean hasAccessories = false;
-        Integer countAccessories = 1;
+        int countAccessories = 1;
         for (String d : this.design) {
             switch (d) {
                 case "spoiler" -> {
@@ -53,9 +54,11 @@ public class SportscarManual extends ManualTemplate {
                 }
             }
         }
+
         if (!hasAccessories) {
             designSpecs.append("Euhm... No extra's I see. That's okay, a Sports car already looks really cool.\n");
         }
+
         return designSpecs.toString();
     }
 }
