@@ -26,35 +26,31 @@ public class LimousineManual extends ManualTemplate {
                 .append(" and this will have be a metallic color. This will look pretty and it will sure get the attention of everyone.\n")
                 .append("As for the extra's, you need the following information:\n");
 
-        boolean hasAccessories = false;
-        int countAccessories = 1;
-        for (String d : this.design) {
-            switch (d) {
-                case "spoiler" -> {
-                    designSpecs.append(countAccessories).append(". You have chosen a spoiler, This will be a 'Small Roof Spoiler'.\n")
-                            .append("This spoiler won't be helpful for anything, but for sure will look nice on your long limousine.\n");
-                    hasAccessories = true;
-                    countAccessories++;
-                }
-                case "tinted windows" -> {
-                    designSpecs.append(countAccessories).append(". You have chosen the tinted windows. This will be all fully tinted.\n")
-                            .append("This will mean that the back windows (side and rear) will allow 0% of light through there.")
-                            .append("The front windows however will allow 75% light through there, so your chauffeur can see a bit better.\n")
-                            .append("With these windows no-one can see you inside your limousine and you have the ultimate privacy!\n");
-                    hasAccessories = true;
-                    countAccessories++;
-                }
-                case "roof box" -> {
-                    designSpecs.append(countAccessories).append(". You have chosen the roof box. This is perfect for a long vehicle.\n")
-                            .append("The roof box will have a insane volume of 2.000L, which is incredibly high for roof boxes.\n")
-                            .append("TIP: You can take all your friends and family on a vacation with this space.\n");
-                    hasAccessories = true;
+        if (this.design.size() == 1) {
+            designSpecs.append("Oh... I see you didn't choose any extra's. No worries, your limousine will still be nice.\n");
+        } else {
+            int countAccessories = 1;
+            for (String d : this.design) {
+                switch (d) {
+                    case "spoiler" -> {
+                        designSpecs.append(countAccessories).append(". You have chosen a spoiler, This will be a 'Small Roof Spoiler'.\n")
+                                .append("This spoiler won't be helpful for anything, but for sure will look nice on your long limousine.\n");
+                        countAccessories++;
+                    }
+                    case "tinted windows" -> {
+                        designSpecs.append(countAccessories).append(". You have chosen the tinted windows. This will be all fully tinted.\n")
+                                .append("This will mean that the back windows (side and rear) will allow 0% of light through there.")
+                                .append("The front windows however will allow 75% light through there, so your chauffeur can see a bit better.\n")
+                                .append("With these windows no-one can see you inside your limousine and you have the ultimate privacy!\n");
+                        countAccessories++;
+                    }
+                    case "roof box" -> {
+                        designSpecs.append(countAccessories).append(". You have chosen the roof box. This is perfect for a long vehicle.\n")
+                                .append("The roof box will have a insane volume of 2.000L, which is incredibly high for roof boxes.\n")
+                                .append("TIP: You can take all your friends and family on a vacation with this baggage space.\n");
+                    }
                 }
             }
-        }
-
-        if (!hasAccessories) {
-            designSpecs.append("Oh... I see you didn't choose any extra's. No worries, your limousine will still be nice.\n");
         }
 
         return designSpecs.toString();

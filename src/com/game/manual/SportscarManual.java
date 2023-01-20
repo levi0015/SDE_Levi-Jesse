@@ -26,37 +26,33 @@ public class SportscarManual extends ManualTemplate {
                 .append(" and this will have a thin safety coat on top, so little scratches won't take of the paint.\n")
                 .append("As for the extra's, you need the following information:\n");
 
-        boolean hasAccessories = false;
-        int countAccessories = 1;
-        for (String d : this.design) {
-            switch (d) {
-                case "spoiler" -> {
-                    designSpecs.append(countAccessories).append(". You have chosen a spoiler, This will be a 'Medium GT Spoiler'.\n")
-                            .append("This spoiler has the feature of 'speed braking', this means the spoiler will turn itself up\n")
-                            .append("when you brake, which will help you brake faster. This will only happen with a speed above 150 km/h\n");
-                    hasAccessories = true;
-                    countAccessories++;
-                }
-                case "tinted windows" -> {
-                    designSpecs.append(countAccessories).append(". You have chosen the tinted windows. These windows will have the max legal limit of tinting.\n")
-                            .append("This will mean that the back windows (side and rear) will allow 0% of light through there.")
-                            .append("The front windows (side and windscreen) will allow 75% light through there.\n")
-                            .append("With these windows your car will be a lot cooler than it already is.\n");
-                    hasAccessories = true;
-                    countAccessories++;
-                }
-                case "roof box" -> {
-                    designSpecs.append(countAccessories).append(". You have chosen the roof box. That's a bit weird for a sports car, but it's up to you.\n")
-                            .append("The roof box will have a volume of 350L so you can put all your luck-age in there.\n")
-                            .append("WARNING: Your tipping point will be higher with more weight in it. Watch out with fast corner speed!\n");
-                    hasAccessories = true;
-                    countAccessories++;
+        if (this.design.size() == 1) {
+            designSpecs.append("Euhm... No extra's I see. That's okay, a Sports car already looks really cool.\n");
+        } else {
+            int countAccessories = 1;
+            for (String d : this.design) {
+                switch (d) {
+                    case "spoiler" -> {
+                        designSpecs.append(countAccessories).append(". You have chosen a spoiler, This will be a 'Medium GT Spoiler'.\n")
+                                .append("This spoiler has the feature of 'speed braking', this means the spoiler will turn itself up\n")
+                                .append("when you brake, which will help you brake faster. This will only happen with a speed above 150 km/h\n");
+                        countAccessories++;
+                    }
+                    case "tinted windows" -> {
+                        designSpecs.append(countAccessories).append(". You have chosen the tinted windows. These windows will have the max legal limit of tinting.\n")
+                                .append("This will mean that the back windows (side and rear) will allow 0% of light through there.")
+                                .append("The front windows (side and windscreen) will allow 75% light through there.\n")
+                                .append("With these windows your car will be a lot cooler than it already is.\n");
+                        countAccessories++;
+                    }
+                    case "roof box" -> {
+                        designSpecs.append(countAccessories).append(". You have chosen the roof box. That's a bit weird for a sports car, but it's up to you.\n")
+                                .append("The roof box will have a volume of 350L so you can put all your luck-age in there.\n")
+                                .append("WARNING: Your tipping point will be higher with more weight in it. Watch out with fast corner speed!\n");
+                        countAccessories++;
+                    }
                 }
             }
-        }
-
-        if (!hasAccessories) {
-            designSpecs.append("Euhm... No extra's I see. That's okay, a Sports car already looks really cool.\n");
         }
 
         return designSpecs.toString();

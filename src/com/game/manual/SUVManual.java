@@ -26,36 +26,32 @@ public class SUVManual extends ManualTemplate {
                 .append(" and this will have be a matte color. This will look clean and cool on your car.\n")
                 .append("As for the extra's, you need the following information:\n");
 
-        boolean hasAccessories = false;
-        int countAccessories = 1;
-        for (String d : this.design) {
-            switch (d) {
-                case "spoiler" -> {
-                    designSpecs.append(countAccessories).append(". You have chosen a spoiler, This will be a 'Small Roof Spoiler'.\n")
-                            .append("This spoiler will add a bit of downforce to your car, which will become helpful on some tough terrain.\n");
-                    hasAccessories = true;
-                    countAccessories++;
-                }
-                case "tinted windows" -> {
-                    designSpecs.append(countAccessories).append(". You have chosen the tinted windows. These windows will have the max legal limit of tinting.\n")
-                            .append("This will mean that the back windows (side and rear) will allow 0% of light through there.")
-                            .append("The front windows (side and windscreen) will allow 75% light through there.\n")
-                            .append("With these windows you can drive around like a bad-ass SUV driver.\n");
-                    hasAccessories = true;
-                    countAccessories++;
-                }
-                case "roof box" -> {
-                    designSpecs.append(countAccessories).append(". You have chosen the roof box. This is perfect for long vacations for example.\n")
-                            .append("The roof box will have a volume of 450L, which is almost the same as your trunk. Combined this will be approximately 1000L\n")
-                            .append("TIP: IF you put the dead bodies in here, your car won't smell that bad for a week.\n");
-                    hasAccessories = true;
-                    countAccessories++;
+        if (this.design.size() == 1) {
+            designSpecs.append("Hmmm... You didn't choose any extra's? Ah well, you can add it later if you change your mind.\n");
+        } else {
+            int countAccessories = 1;
+            for (String d : this.design) {
+                switch (d) {
+                    case "spoiler" -> {
+                        designSpecs.append(countAccessories).append(". You have chosen a spoiler, This will be a 'Small Roof Spoiler'.\n")
+                                .append("This spoiler will add a bit of downforce to your car, which will become helpful on some tough terrain.\n");
+                        countAccessories++;
+                    }
+                    case "tinted windows" -> {
+                        designSpecs.append(countAccessories).append(". You have chosen the tinted windows. These windows will have the max legal limit of tinting.\n")
+                                .append("This will mean that the back windows (side and rear) will allow 0% of light through there.")
+                                .append("The front windows (side and windscreen) will allow 75% light through there.\n")
+                                .append("With these windows you can drive around like a bad-ass SUV driver.\n");
+                        countAccessories++;
+                    }
+                    case "roof box" -> {
+                        designSpecs.append(countAccessories).append(". You have chosen the roof box. This is perfect for long vacations for example.\n")
+                                .append("The roof box will have a volume of 450L, which is almost the same as your trunk. Combined this will be approximately 1000L\n")
+                                .append("TIP: IF you put the dead bodies in here, your car won't smell that bad for a week.\n");
+                        countAccessories++;
+                    }
                 }
             }
-        }
-
-        if (!hasAccessories) {
-            designSpecs.append("Hmmm... You didn't choose any extra's? Ah well, you can add it later if you change your mind.\n");
         }
 
         return designSpecs.toString();
